@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Editor config
+.vscode/
+
+# Prettier
+.prettier*
+
+# ESLint cache
+.eslintcache
+
+# Tailwind JIT cache
+tailwind.config.js
+
+# CI/CD
+.github/
