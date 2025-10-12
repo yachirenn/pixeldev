@@ -1,10 +1,12 @@
-import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
+import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Navbar />
-    </main>
+    <div className="min-h-screen bg-background">
+      <main className="min-h-screen">
+        <HeroSection />
+      </main>
+    </div>
   );
 }
