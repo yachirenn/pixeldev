@@ -27,7 +27,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            <Button className="p-5 text-md font-medium bg-primary text-white border-2 border-transparent hover:bg-white hover:text-primary hover:border-primary active:bg-primary/80 transition-colors duration-300">
+            <Button className="p-5 text-md font-medium bg-primary text-white border-2 border-transparent hover:bg-white hover:text-primary hover:border-primary active:bg-primary/80 cursor-pointer transition-colors duration-300">
               Hubungi Kami
             </Button>
           </div>

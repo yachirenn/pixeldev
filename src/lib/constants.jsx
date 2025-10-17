@@ -1,7 +1,8 @@
 export const navItems = [
-  { name: "Home", href: "#" },
-  { name: "About", href: "#" },
-  { name: "Why Us?", href: "#?" },
-  { name: "Activity", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "Beranda", href: "#main" },
+  { name: "Tentang", href: "#about" },
+  { name: "Kenapa Kami", href: "#kategori" },
+  { name: "Kegiatan", href: "#aktivitas" },
+  { name: "Testimoni", href: "#testimoni" },
+  { name: "Kontak", href: "#footer" },
 ];

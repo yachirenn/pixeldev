@@ -9,8 +9,8 @@ export default function ActivitySection() {
   const activityList = activities;
   console.log("activities: ", activities);
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto text-center mb-12">
+    <section id="aktivitas" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto text-center mb-12 mt-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ export default function ActivitySection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: index * 0.3 }}
+              transition={{ duration: 0.9, delay: index * 0.1 }}
             >
               <Card className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300 border-0 bg-card/50 backdrop-blur-xs py-0">
                 <CardHeader className="p-0">
