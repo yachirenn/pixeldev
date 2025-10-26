@@ -4,6 +4,7 @@ import * as motion from "motion/react-client";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar } from "lucide-react";
+import Image from "next/image";
 
 export default function ActivitySection() {
   const activityList = activities;
@@ -28,7 +29,9 @@ export default function ActivitySection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {activityList.map((activity, index) => (
-            <motion.div key={activity.id} className="mb-8"
+            <motion.div
+              key={activity.id}
+              className="mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -36,12 +39,16 @@ export default function ActivitySection() {
             >
               <Card className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300 border-0 bg-card/50 backdrop-blur-xs py-0">
                 <CardHeader className="p-0">
-                  <div className="">
-                    <img
-                      src={activity.imageUrl}
-                      alt={activity.title}
-                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
+                  <div className="relative">
+                    <div className="w-full h-48 relative">
+                      <Image
+                        fill
+                        src={activity.imageUrl}
+                        alt={activity.title}
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+
                     <div className="absolute top-4 left-4">
                       <Badge
                         variant="secondary"

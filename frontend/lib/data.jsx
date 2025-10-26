@@ -32,3 +32,26 @@ export const activities = [
         link: "#"
     }
 ];
+
+export const quotes = [
+    {
+        text: "The best way to predict the future is to create it.",
+        author: "Peter Drucker",
+    },
+    {
+        text: "Education is the most powerful weapon which you can use to change the world.",
+        author: "Nelson Mandela",
+    },
+    {
+        text: "Learning never exhausts the mind.",
+        author: "Leonardo da Vinci",
+    },
+    {
+        text: "The beautiful thing about learning is that no one can take it away from you.",
+        author: "B.B. King",
+    },
+    {
+        text: "An investment in knowledge pays the best interest.",
+        author: "Benjamin Franklin",
+    }
+];

@@ -50,12 +50,6 @@ const TestiSection = () => {
               </motion.div>
             ))}
           </div>
-          <div className="max-w-xl mx-auto mt-15 -mb-15">
-            <blockquote className="text-sm italic text-muted-foreground">
-              “Belajar di Salsabila bukan hanya soal akademik, tapi juga soal
-              karakter dan kebahagiaan.”
-            </blockquote>
-          </div>
         </motion.div>
       </div>
     </section>

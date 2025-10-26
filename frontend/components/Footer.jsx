@@ -40,16 +40,16 @@ const socialLinks = [
 ];
 
 const linkcepat = [
-  { name: "Home", href: "#" },
-  { name: "About", href: "#" },
-  { name: "Why Us?", href: "#?" },
-  { name: "Activity", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "Beranda", href: "#main" },
+  { name: "Tentang", href: "#about" },
+  { name: "Kenapa Kami", href: "#kategori" },
+  { name: "Kegiatan", href: "#aktivitas" },
+  { name: "Kontak", href: "#footer" },
 ];
 
 export default function Footer() {
   return (
-    <footer id="footer" className="bg-background border-t border-border/50">
+    <footer id="footer" className="bg-background border-t border-border/95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
@@ -85,7 +85,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    className="text-muted-foreground hover:text-foreground hover:underline transition-colors duration-300"
                   >
                     {link.name}
                   </Link>
@@ -105,6 +105,10 @@ export default function Footer() {
                 <Button>Subscribe</Button>
             </div>
           </div>
+        </div>
+
+        <div className="mt-8 pt-4 border-t border-border text-center text-sm text-muted-foreground">
+            <p>© {new Date().getFullYear()} KTIP - Salsabila 1. All rights reserved. </p>
         </div>
       </div>
     </footer>
