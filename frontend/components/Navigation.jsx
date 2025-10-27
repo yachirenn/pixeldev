@@ -4,8 +4,8 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import MobileNavigation from "./MobileNavigation";
 
-const waNumber = process.env.NEXT_PUBLIC_WA_NUMBER || '6288215697016';
-const waText = encodeURIComponent('Halo saya ingin menghubungi Anda');
+const waNumber = process.env.NEXT_PUBLIC_WA_NUMBER || '6285878087845';
+const waText = encodeURIComponent('Halo saya ingin tahu tentang proyek Anda');
 const waHref = `https://wa.me/${waNumber}?text=${waText}`;
 
 export default function Navbar() {

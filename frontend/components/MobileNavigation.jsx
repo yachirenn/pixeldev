@@ -14,9 +14,11 @@ import {
 } from '@/components/ui/sheet';
 
 const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Activities', href: '/activities' },
+  { name: 'Home', href: '#main' },
+  { name: 'About', href: '#about' },
+  { name: 'Activities', href: '#aktivitas' },
+  { name: 'Testimonial', href: '#testimoni' },
+  { name: 'Footer', href: '#footer' },
 ];
 
 export default function MobileNavigation() {

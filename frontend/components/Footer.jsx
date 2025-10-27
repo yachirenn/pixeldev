@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 
 const socialLinks = [
   {
@@ -34,7 +35,7 @@ const socialLinks = [
   },
   {
     icon: Github,
-    href: "",
+    href: "https://github.com/yourprofile",
     label: "GitHub",
   },
 ];
@@ -96,18 +97,19 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div className="">
-            <h4 className="font-semibold text-foreground mb-4">Stay Update</h4>
+            <h4 className="font-semibold text-foreground mb-4">Contact Us</h4>
             <p className="text-muted-foreground mb-4">
-              Subscribe untuk mendapatkan pembaruan terbaru.
+              Komentar Anda sangat bermanfaat bagi kami.
             </p>
-            <div className="flex flex-col sm:flex-row gap-2">
+            <div className="grid-cols-3 space-y-5 gap-8">
                 <Input type="email" placeholder="Your email" />
+                <Textarea placeholder="Type your message here." />
                 <Button>Subscribe</Button>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 pt-4 border-t border-border text-center text-sm text-muted-foreground">
+        <div className="mt-8 pt-4 border-t border-border text-center text-sm font-medium">
             <p>© {new Date().getFullYear()} KTIP - Salsabila 1. All rights reserved. </p>
         </div>
       </div>
