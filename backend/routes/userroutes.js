@@ -1,11 +1,12 @@
 import express from 'express';
-import User from '../models/user.ts';
+import User from '../models/user.js';
 
 const router = express.Router();
 
 // GET semua user
-router.get('/', (req, res) => {
-  res.send('User route aktif!');
+router.get('/', async (req, res) => {
+  const users = await User.find();
+  res.json(users);
 });
 
 // POST tambah user
@@ -16,7 +17,7 @@ router.post('/', async (req, res) => {
     await newUser.save();
     res.status(201).json(newUser);
   } catch (err) {
-    res.status(400).json({ error: err instanceof Error ? err.message : 'An unknown error occurred' });
+    res.status(400).json({ error: err.message });
   }
 });
 

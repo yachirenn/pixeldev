@@ -1,7 +1,7 @@
+import nodemailer from 'nodemailer';
 const nodemailer = require('nodemailer');
-import type { Request, Response } from 'express';
 
-module.exports.sendEmail = async (req: Request, res: Response) => {
+export const sendEmail = async (req, res) => {
   const { name, email, message } = req.body;
 
   const transporter = nodemailer.createTransport({
