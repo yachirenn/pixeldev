@@ -1,30 +1,21 @@
 import nodemailer from "nodemailer";
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") return res.status(405).end();
+export async function POST(req) {
+  const { name, email, message } = await req.json();
 
-  const { email, message } = req.body;
-
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "rendysulistyawan11@gmail.com", // ganti dengan email kamu
-      pass: "PixelDev_2025!", // gunakan App Password jika pakai Gmail
+  // Kirim ke backend kamu di port 5000
+  const response = await fetch("http://localhost:5000/api/email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify({ name, email, message }),
   });
 
-  const mailOptions = {
-    from: email,
-    to: "sijasyifa@gmail.com", // ganti dengan email temanmu
-    subject: "Pesan Baru dari Website",
-    text: `Email: ${email}\n\nPesan:\n${message}`,
-  };
+  const result = await response.json();
 
-  try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: "Email sent successfully" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Email failed to send" });
-  }
+  return new Response(JSON.stringify(result), {
+    status: response.status,
+    headers: { "Content-Type": "application/json" },
+  });
 }

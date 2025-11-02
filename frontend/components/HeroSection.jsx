@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 
 // HeroSection.jsx atau tempat tombol Join Now
-const formUrl = process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || 'https://docs.google.com/forms/d/XXXX/viewform';
+const formUrl = process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || 'https://forms.gle/tzcAzQb3BW3Dybzt6';
 
 
 export default function HeroSection() {
@@ -29,7 +29,7 @@ export default function HeroSection() {
             </p>
 
             <motion.div initial={{ opacity: 0, y: 20}} animate={{ opacity: 1, y: 0}} transition={{ duration: 0.8, delay: 0.3 }}>
-              <Button size="lg" href={formUrl} target="_blank" rel="noopener noreferrer" className="group">
+              <Button size="lg" href={formUrl} target="_blank" rel="noopener noreferrer" className="group hover:cursor-pointer">
                 Join Now{" "}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>

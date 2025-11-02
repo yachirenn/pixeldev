@@ -1,3 +1,4 @@
+"use client";
 import {
   Facebook,
   Github,
@@ -7,6 +8,7 @@ import {
   Twitter,
 } from "lucide-react";
 
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -49,6 +51,34 @@ const linkcepat = [
 ];
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Mengirim email...");
+
+    try {
+      const res = await fetch("http://localhost:5000/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, message }),
+      });
+
+      if (res.ok) {
+        setStatus("Email berhasil dikirim!");
+      } else {
+        setStatus("Terjadi kesalahan saat mengirim");
+      }
+    } catch (error) {
+      console.error("Gagal menghubungi server:", error);
+      setStatus("Gagal menghubungi server backend");
+    }
+  };
+
   return (
     <footer id="footer" className="bg-background border-t border-border/95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -101,16 +131,34 @@ export default function Footer() {
             <p className="text-muted-foreground mb-4">
               Komentar Anda sangat bermanfaat bagi kami.
             </p>
-            <div className="grid-cols-3 space-y-5 gap-8">
-                <Input type="email" placeholder="Your email" />
-                <Textarea placeholder="Type your message here." />
-                <Button>Subscribe</Button>
-            </div>
+            <form
+              onSubmit={handleSubmit}
+              className="grid-cols-3 space-y-5 gap-8"
+            >
+              <Input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder="Your email"
+              />
+              <Textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Type your message here."
+              />
+              <Button type="submit" className="hover:cursor-pointer">
+                Submit
+              </Button>
+              <p>{status}</p>
+            </form>
           </div>
         </div>
 
         <div className="mt-8 pt-4 border-t border-border text-center text-sm font-medium">
-            <p>© {new Date().getFullYear()} KTIP - Salsabila 1. All rights reserved. </p>
+          <p>
+            © {new Date().getFullYear()} KTIP - Salsabila 1. All rights
+            reserved.{" "}
+          </p>
         </div>
       </div>
     </footer>
