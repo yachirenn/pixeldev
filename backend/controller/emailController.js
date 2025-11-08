@@ -6,7 +6,7 @@ export const sendEmail = async (req, res) => {
   if(!email || !message) {
     return res.status(400).json({ error: 'Email dan Pesan wajib diisi!' });
   }
-
+  
   try {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
