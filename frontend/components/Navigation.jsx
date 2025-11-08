@@ -4,9 +4,6 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import MobileNavigation from "./MobileNavigation";
 
-const waNumber = process.env.NEXT_PUBLIC_WA_NUMBER || '6285878087845';
-const waText = encodeURIComponent('Halo saya ingin tahu tentang proyek Anda');
-const waHref = `https://wa.me/${waNumber}?text=${waText}`;
 
 export default function Navbar() {
   return (
@@ -32,9 +29,11 @@ export default function Navbar() {
               ))}
             </div>
 
-            <Button href={waHref} className="p-5 text-md font-medium bg-primary text-white border-2 border-transparent hover:bg-white hover:text-primary hover:border-primary active:bg-primary/80 cursor-pointer transition-colors duration-300" target="_blank" rel="noopener noreferrer">
-              Hubungi Kami
-            </Button>
+            <Link href="https://wa.me/6288215697016?text=Halo%20saya%20tertarik%20dengan%20proyek%20Anda!!"  target="_blank" rel="noopener noreferrer">
+              <Button className="p-5 text-md font-medium bg-primary text-white border-2 border-transparent hover:bg-white hover:text-primary hover:border-primary active:bg-primary/80 cursor-pointer transition-colors duration-300">
+                Hubungi Kami
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Nav */}

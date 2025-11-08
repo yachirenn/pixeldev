@@ -40,7 +40,7 @@ export default function Categories() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Kenapa kami?</h2>
             <p className="text-muted-foreground">
-              Tiga alasan utama memilih KB–TKP Salsabila 1.
+              Tiga alasan utama memilih KB-TKP Salsabila 1.
             </p>
           </div>
 
@@ -57,7 +57,7 @@ export default function Categories() {
                 <p className="text-muted-foreground text-center mb-6">{item.description}</p>
                 <Button variant="outline" asChild className="text-sm">
                   <a href={item.href} className="flex items-center gap-2">
-                    Button Text <ArrowRight className="w-4 h-4" />
+                    Pelajari Lebih <ArrowRight className="w-4 h-4" />
                   </a>
                 </Button>
               </Card>

@@ -1,10 +1,7 @@
+"use client";
 import * as motion from "motion/react-client";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
-
-// HeroSection.jsx atau tempat tombol Join Now
-const formUrl = process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || 'https://forms.gle/tzcAzQb3BW3Dybzt6';
-
 
 export default function HeroSection() {
   return (
@@ -19,18 +16,17 @@ export default function HeroSection() {
             className="text-center lg:text-left"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6">
-              Writing That{" "}
-              <span className="text-primary italic">Resonance</span>
+              Tumbuh dalam{" "}
+              <span className="text-primary italic">Cahaya</span>
             </h1>
 
             <p className="text-xl md:*:text-2xl text-muted-foreground mb-8 max-w-2xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-              corrupti debitis provident blanditiis cum quisquam.
+              Kami menghadirkan kegiatan yang menumbuhkan kecerdasan, akhlak, dan kemandirian anak sejak dini — agar mereka tumbuh menjadi generasi yang beriman dan berakhlakul karimah.
             </p>
 
             <motion.div initial={{ opacity: 0, y: 20}} animate={{ opacity: 1, y: 0}} transition={{ duration: 0.8, delay: 0.3 }}>
-              <Button size="lg" href={formUrl} target="_blank" rel="noopener noreferrer" className="group hover:cursor-pointer">
-                Join Now{" "}
+              <Button size="lg" onClick={() => window.open("https://forms.gle/tzcAzQb3BW3Dybzt6", "_blank")} target="_blank" rel="noopener noreferrer" className="group hover:cursor-pointer">
+                Yuk Daftar!{" "}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </motion.div>

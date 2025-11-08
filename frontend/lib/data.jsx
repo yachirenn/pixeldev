@@ -1,34 +1,34 @@
 export const activities = [
     {
         id:"1",
-        title: "Workshop on AI and Machine Learning",
+        title: "Praktik Sholat dan Wudhu Bersama",
         date: "2023-10-15",
-        description: "An in-depth workshop covering the basics and applications of AI and Machine Learning.",
-        imageUrl: "/images/acheroninfinity.png",
+        description: "Melalui kegiatan ini, anak-anak belajar tata cara shalat dan wudhu yang baik dengan dipandu oleh ustaz dan ustazah kami.",
+        imageUrl: "/images/carstuck.jpeg",
         link: "#"
     },
     {
         id:"2",
-        title: "Web Development Bootcamp", 
+        title: "Menggambar dan Mewarnai Kaligrafi", 
         date: "2023-11-05",
-        description: "A comprehensive bootcamp on modern web development technologies and practices.",
-        imageUrl: "/images/robelox.png",
+        description: "Dengan pensil warna di tangan, anak-anak mengekspresikan hati mereka, yang dapat melatih kreativitas, serta kepercayadirian mereka.",
+        imageUrl: "/images/firelli.jpeg",
         link: "#"
     },
     {
         id:"3",
-        title: "Cybersecurity Seminar",
+        title: "Senam Pagi Ceria",
         date: "2023-12-01",
-        description: "A seminar discussing the latest trends and challenges in cybersecurity.",
-        imageUrl: "/images/w2e.jpeg",
+        description: "Bersama-sama menjaga kesehatan dan menumbuhkan semangat.",
+        imageUrl: "/images/toyota.jpeg",
         link: "#"
     },
     {
         id:"4",
-        title: "Cloud Computing Conference",
+        title: "Baca Tulis Al-Qur'an Dasar",
         date: "2024-01-20",
-        description: "A conference exploring the advancements and future of cloud computing.",
-        imageUrl: "/images/Cipher.jpeg",
+        description: "Memahamkan huruf hijaiyah dan melafalkan ayat-ayat pendek dari Al-Qur'an.",
+        imageUrl: "/images/iyanjirr.jpeg",
         link: "#"
     }
 ];
