@@ -12,7 +12,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-22">
           <div className="">
             <h1 className="text-3xl font-black font-heading text-primary">
-              KT-TKIP
+              TKIP-KB
             </h1>
           </div>
 
@@ -29,7 +29,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            <Link href="https://wa.me/6288215697016?text=Halo%20saya%20tertarik%20dengan%20proyek%20Anda!!"  target="_blank" rel="noopener noreferrer">
+            <Link href="https://wa.me/6285878087845?text=Halo%20saya%20tertarik%20dengan%20proyek%20Anda!!"  target="_blank" rel="noopener noreferrer">
               <Button className="p-5 text-md font-medium bg-primary text-white border-2 border-transparent hover:bg-white hover:text-primary hover:border-primary active:bg-primary/80 cursor-pointer transition-colors duration-300">
                 Hubungi Kami
               </Button>

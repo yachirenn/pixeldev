@@ -85,7 +85,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold text-foreground mb-4">KT-TKIP</h3>
+            <h3 className="text-xl font-bold text-foreground mb-4">TKIP-KB</h3>
             <p className="text-muted-foreground mb-4">
               Membangun masa depan gemilang melalui pendidikan berkualitas.
             </p>

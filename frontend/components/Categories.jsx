@@ -55,11 +55,6 @@ export default function Categories() {
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground text-center mb-6">{item.description}</p>
-                <Button variant="outline" asChild className="text-sm">
-                  <a href={item.href} className="flex items-center gap-2">
-                    Pelajari Lebih <ArrowRight className="w-4 h-4" />
-                  </a>
-                </Button>
               </Card>
             ))}
           </div>
