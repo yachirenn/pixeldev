@@ -1,0 +1,13 @@
+name: Keep Railway Alive
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # jalan tiap 15 menit
+  workflow_dispatch:          # bisa dijalankan manual dari GitHub UI
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Railway Server
+        run: curl -s https://pixeldev-production.up.railway.app/ping
