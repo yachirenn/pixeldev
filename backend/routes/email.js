@@ -1,8 +1,11 @@
 import express from 'express';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import Message from '../models/message.js';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const router = express.Router();
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 router.post('/', async (req, res) => {
   const { name, email, message } = req.body;
@@ -21,28 +24,23 @@ router.post('/', async (req, res) => {
     const newMessage = new Message({ name, email, message });
     await newMessage.save();
 
-    // ✅ Kirim email via Nodemailer
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-      }
+    // ✅ Kirim email via Resend
+    await resend.emails.send({
+      from: 'onboarding@resend.dev', // default domain Resend
+      to: process.env.EMAIL_RECEIVER,
+      reply_to: email,
+      subject: `Pesan baru dari ${name}`,
+      html: `
+        <p><strong>Nama:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Pesan:</strong><br>${message}</p>
+      `
     });
-
-    await transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_RECEIVER,
-        replyTo: email,                             // ini penting: email user bisa dibalas langsung
-        subject: `Pesan baru dari ${name}`,
-        text: `Pesan dari: ${name} <${email}>\n\n${message}`
-    });
-
 
     res.status(200).json({ success: true, message: 'Email dan data berhasil dikirim' });
   } catch (err) {
-    console.error('❌ Error:', err);
-    res.status(500).json({ success: false, message: 'Terjadi kesalahan saat mengirim' });
+    console.error('❌ Error kirim email:', err);
+    res.status(500).json({ success: false, message: 'Terjadi kesalahan saat mengirim email' });
   }
 });
 
