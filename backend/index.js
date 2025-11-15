@@ -8,16 +8,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors({
-  origin: 'https://pixeldev-eosin.vercel.app/'
-}));
+app.use(cors());
 app.use(express.json());
 
-// Routing untuk form email
 app.use('/send', emailRoutes);
 
-// Aktifkan server
 app.listen(PORT, () => {
-  console.log(`Server berjalan di ${PORT}`);
+  console.log(`Server berjalan di port ${PORT}`);
 });
