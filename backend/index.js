@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
   res.send('Backend PixelDev jalan 🎉');
 });
 
+app.get('/ping', (req, res) => {
+  res.status(200).send('pong');
+});
+
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
