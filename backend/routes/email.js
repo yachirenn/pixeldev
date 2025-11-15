@@ -1,6 +1,6 @@
 import express from 'express';
 import nodemailer from 'nodemailer';
-import Message from '../models/Message.js'; // pastikan file model ini ada
+import Message from '../models/message.js';
 
 const router = express.Router();
 
