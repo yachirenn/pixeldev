@@ -8,7 +8,9 @@ dotenv.config();
 const app = express();
 
 app.use('/api/users', userRoutes);
-app.use(cors());
+app.use(cors({
+  origin: 'https://pixeldev-eosin.vercel.app/'
+}));
 app.use(express.json());
 
 // route test
