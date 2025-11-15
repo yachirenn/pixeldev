@@ -51,6 +51,7 @@ const linkcepat = [
 ];
 
 export default function Footer() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
@@ -65,7 +66,7 @@ export default function Footer() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, message }),
+        body: JSON.stringify({ name, email, message }),
       });
 
       if (res.ok) {
@@ -136,6 +137,7 @@ export default function Footer() {
               onSubmit={handleSubmit}
               className="grid-cols-3 space-y-5 gap-8"
             >
+              <Input value={name} onChange={(e) => setName(e.target.value)} type="name" placeholder="Your Name" />
               <Input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
