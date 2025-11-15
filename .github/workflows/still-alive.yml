@@ -9,5 +9,11 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Railway Server
+      - name: Ping /ping endpoint
         run: curl -s https://pixeldev-production.up.railway.app/ping
+
+      - name: Trigger /send email
+        run: |
+          curl -s -X POST https://pixeldev-production.up.railway.app/send \
+          -H "Content-Type: application/json" \
+          -d '{"name":"Bot","email":"bot@ping.com","message":"Ping test"}'
