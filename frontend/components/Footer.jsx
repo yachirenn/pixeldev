@@ -61,6 +61,10 @@ export default function Footer() {
     setStatus("Mengirim email...");
 
     try {
+      if (!name || !email || !message) {
+        setStatus("Semua field wajib diisi");
+        return;
+      }
       const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/send`, {
         method: "POST",
         headers: {
@@ -137,7 +141,12 @@ export default function Footer() {
               onSubmit={handleSubmit}
               className="grid-cols-3 space-y-5 gap-8"
             >
-              <Input value={name} onChange={(e) => setName(e.target.value)} type="name" placeholder="Your Name" />
+              <Input 
+                value={name} 
+                onChange={(e) => setName(e.target.value)} 
+                type="name" 
+                placeholder="Your Name"
+              />
               <Input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
