@@ -1,18 +1,14 @@
-export async function POST(req) {
-  const { name, email, message } = await req.json();
-
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/send`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+export async function sendEmail({ name, email, message }) {
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/send`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, message }),
   });
 
-  const result = await response.json();
+  if (!res.ok) {
+    throw new Error('Gagal menghubungi server backend');
+  }
 
-  return new Response(JSON.stringify(result), {
-    status: response.status,
-    headers: { "Content-Type": "application/json" },
-  });
+  return res.json();
 }

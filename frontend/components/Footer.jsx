@@ -60,7 +60,7 @@ export default function Footer() {
     setStatus("Mengirim email...");
 
     try {
-      const res = await fetch("http://localhost:5000/send", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/send`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -71,7 +71,8 @@ export default function Footer() {
       if (res.ok) {
         setStatus("Email berhasil dikirim!");
       } else {
-        setStatus("Terjadi kesalahan saat mengirim");
+        const errorText = await res.text();
+        setStatus(errorText || "Terjadi kesalahan saat mengirim");
       }
     } catch (error) {
       console.error("Gagal menghubungi server:", error);
