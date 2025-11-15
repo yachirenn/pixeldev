@@ -2,7 +2,7 @@ export async function POST(req) {
   try {
     const { email, message } = await req.json();
 
-    const response = await fetch('http://localhost:5000/send', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/send`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, message }),
@@ -11,7 +11,8 @@ export async function POST(req) {
     const contentType = response.headers.get('content-type');
     const isJson = contentType && contentType.includes('application/json');
 
-    const data = isJson ? await response.json() : { error: 'Invalid response from backend' };
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users`);
+    const data = await res.json();
 
     return new Response(JSON.stringify(data), {
       status: response.status,
