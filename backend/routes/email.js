@@ -1,32 +1,28 @@
 import express from 'express';
 import { Resend } from 'resend';
 import Message from '../models/message.js';
-import dotenv from 'dotenv';
 
-dotenv.config();
 const router = express.Router();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 router.post('/', async (req, res) => {
   const { name, email, message } = req.body;
 
-  // ✅ Validasi input
   if (!name || !email || !message) {
     return res.status(400).json({ success: false, message: 'Semua field wajib diisi' });
   }
-
   if (!email.includes('@')) {
     return res.status(400).json({ success: false, message: 'Email tidak valid' });
   }
 
   try {
-    // ✅ Simpan ke MongoDB
+    // Simpan ke MongoDB
     const newMessage = new Message({ name, email, message });
     await newMessage.save();
 
-    // ✅ Kirim email via Resend
+    // Kirim email via Resend
     await resend.emails.send({
-      from: 'onboarding@resend.dev', // default domain Resend
+      from: 'onboarding@resend.dev',    // nanti bisa diganti domain kamu
       to: process.env.EMAIL_RECEIVER,
       reply_to: email,
       subject: `Pesan baru dari ${name}`,
