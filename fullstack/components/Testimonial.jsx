@@ -1,5 +1,5 @@
 import * as motion from "motion/react-client";
-import { testimonials } from "@/lib/test";
+import { testimonials } from "@/lib/testimonial";
 
 const TestiSection = () => {
   return (
