@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///D:/Coding/PixelDev/frontend/components/MobileNavigation.jsx"],"sourcesContent":["'use client';\r\nimport React, { useState } from 'react';\r\nimport { Sheet } from './your-sheet-component'; // sesuaikan jika perlu\r\nimport MobileNavContent from './MobileNavContent'; // contoh import lain\r\n\r\nexport default function MobileNavigation() {\r\n  const [isOpen, setIsOpen] = useState(false);\r\n\r\n  return (\r\n    <div className=\"md:hidden flex items-center space-x-4\">\r\n      <Sheet open={isOpen} onOpenChange={setIsOpen}>\r\n        <Sheet.Trigger asChild>\r\n          <button aria-label=\"Open menu\">Menu</button>\r\n        </Sheet.Trigger>\r\n        <Sheet.Content>\r\n          <MobileNavContent onClose={() => setIsOpen(false)} />\r\n        </Sheet.Content>\r\n      </Sheet>\r\n    </div>\r\n  );\r\n}"],"names":[],"mappings":";;;;;AACA;;;;;;;;;;;AADA;;;;;AAKe,SAAS;IACtB,MAAM,CAAC,QAAQ,UAAU,GAAG,IAAA,iNAAQ,EAAC;IAErC,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;YAAM,MAAM;YAAQ,cAAc;;8BACjC,8OAAC,MAAM,OAAO;oBAAC,OAAO;8BACpB,cAAA,8OAAC;wBAAO,cAAW;kCAAY;;;;;;;;;;;8BAEjC,8OAAC,MAAM,OAAO;8BACZ,cAAA,8OAAC;wBAAiB,SAAS,IAAM,UAAU;;;;;;;;;;;;;;;;;;;;;;AAKrD","debugId":null}}]
+}
