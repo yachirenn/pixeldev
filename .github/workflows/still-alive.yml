@@ -2,7 +2,7 @@ name: Still Alive
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/5 * * * *'   # jalan tiap 5 menit
   workflow_dispatch:
 
 jobs:
@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping /ping
-        run: curl -s https://pixeldev-production.up.railway.app/ping > /dev/null
+        run: curl -s https://pixeldev-production.up.railway.app/ping
