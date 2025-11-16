@@ -1,6 +1,5 @@
-import { BookOpen, User, MapPin, ArrowRight } from "lucide-react";
+import { BookOpen, User, MapPin } from "lucide-react";
 import * as motion from "motion/react-client";
-import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 
 const categories = [

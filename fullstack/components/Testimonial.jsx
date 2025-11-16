@@ -1,5 +1,6 @@
 import * as motion from "motion/react-client";
 import { testimonials } from "@/lib/testimonial";
+import Image from "next/image";
 
 const TestiSection = () => {
   return (
@@ -35,10 +36,12 @@ const TestiSection = () => {
                   {item.quote}
                 </p>
                 <div className="flex items-center gap-4">
-                  <img
+                  <Image
                     src={item.image}
                     alt={`Foto ${item.name}`}
-                    className="w-14 h-14 rounded-full object-cover border border-border"
+                    width={56}   // 14 * 4px = 56px
+                    height={56}  // sama dengan w-14 h-14
+                    className="rounded-full object-cover border border-border"
                   />
                   <div>
                     <strong className="block text-primary">{item.name}</strong>

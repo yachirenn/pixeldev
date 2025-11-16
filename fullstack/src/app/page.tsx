@@ -1,4 +1,3 @@
-import { Inter, Poppins } from "next/font/google";
 import HeroSection from "@/components/HeroSection";
 import Activity from "@/components/ActivitySection";
 import About from "@/components/AboutSection";

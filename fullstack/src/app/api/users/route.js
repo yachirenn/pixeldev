@@ -9,6 +9,7 @@ export async function GET() {
     const users = await User.find();
     return new Response(JSON.stringify(users), { status: 200 });
   } catch (err) {
+    console.error(err);
     return new Response(JSON.stringify({ error: 'Gagal mengambil data user' }), { status: 500 });
   }
 }
