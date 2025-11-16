@@ -8,10 +8,10 @@ import userRoutes from './routes/userroutes.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000; // ✅ kasih default
 
 app.use(cors({
-  origin: 'https://pixeldev-eosin.vercel.app' // ganti sesuai domain Vercel kamu
+  origin: '*' // ✅ sementara izinkan semua origin biar gampang tes
 }));
 app.use(express.json());
 
@@ -25,17 +25,19 @@ app.get('/', (req, res) => {
 });
 
 app.get('/ping', (req, res) => {
+  console.log("✅ Ping diterima");
   res.status(200).send('pong');
 });
 
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log('✅ MongoDB connected');
-    app.listen(PORT, () => {
-      console.log(`🚀 Server berjalan di port ${PORT}`);
+// ✅ Start server dulu, lalu connect MongoDB
+app.listen(PORT, () => {
+  console.log(`🚀 Server berjalan di port ${PORT}`);
+
+  mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+      console.log('✅ MongoDB connected');
+    })
+    .catch((err) => {
+      console.error('❌ MongoDB error:', err);
     });
-  })
-  .catch((err) => {
-    console.error('❌ MongoDB error:', err);
-  });
+});
