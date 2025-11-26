@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 import mongoose from 'mongoose';
-import Message from '../../../models/message';
+import Message from '../../../models/Message';
 
 mongoose.connect(process.env.MONGO_URI);
 
