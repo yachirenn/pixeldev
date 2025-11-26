@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import User from '../../../models/User';
+import User from '../../models/User';
 
 // Pastikan koneksi MongoDB
 mongoose.connect(process.env.MONGO_URI);
