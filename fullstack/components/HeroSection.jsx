@@ -16,8 +16,8 @@ export default function HeroSection() {
             className="text-center lg:text-left"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6">
-              Tumbuh dalam{" "}
-              <span className="text-primary italic">Cahaya</span>
+              Cakap, Cendekia,{" "}
+              <span className="text-primary italic">Berakhlak Mulia</span>
             </h1>
 
             <p className="text-xl md:*:text-2xl text-muted-foreground mb-8 max-w-2xl">
@@ -39,9 +39,9 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }} 
           className="hidden lg:block"
           >
-            <div className="relative m-25">
+            <div className="relative m-12">
             <img 
-            src="../images/Logo.png" 
+            src="../images/LOGO.png" 
             alt="Logo" 
             className="w-80 h-80 object-cover rounded-2xl shadow-2xl"
             />
