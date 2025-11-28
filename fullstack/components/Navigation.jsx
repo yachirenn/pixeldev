@@ -12,7 +12,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-22">
           <div className="">
             <h1 className="text-3xl font-black font-heading text-primary">
-              KB-TKIP SALSABILA 1
+              KB-TKIP Salsabila 1
             </h1>
           </div>
 
