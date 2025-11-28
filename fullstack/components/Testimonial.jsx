@@ -18,7 +18,7 @@ const TestiSection = () => {
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Suara dari orang tua, alumni, dan pendidik tentang pengalaman
-              mereka bersama KB–TKP Salsabila 1.
+              mereka bersama KB–TKIP Salsabila 1.
             </p>
           </div>
 

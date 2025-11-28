@@ -84,7 +84,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold text-foreground mb-4">TKIP-KB</h3>
+            <h3 className="text-xl font-bold text-foreground mb-4">KB-TKIP Salsabila 1</h3>
             <p className="text-muted-foreground mb-4">
               Membangun masa depan gemilang melalui pendidikan berkualitas.
             </p>
@@ -161,7 +161,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-4 border-t border-border text-center text-sm font-medium">
           <p>
-            © {new Date().getFullYear()} KTIP - Salsabila 1. All rights
+            © {new Date().getFullYear()} KB-TKIP - Salsabila 1. All rights
             reserved.{" "}
           </p>
         </div>
