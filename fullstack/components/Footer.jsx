@@ -63,7 +63,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Kunjungi Kami</h4>
             <p className="text-muted-foreground mb-4">
-              Pesan Anda sangat bermanfaat bagi kami.
+              Explore tempat kami untuk pengalaman terbaik anda!
             </p>
             <ul className="space-y-2">
               <iframe
