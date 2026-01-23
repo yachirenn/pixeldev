@@ -2,6 +2,8 @@ import nodemailer from 'nodemailer';
 import mongoose from 'mongoose';
 import Message from '../../../models/message';
 
+export const runtime = "nodejs";
+
 mongoose.connect(process.env.MONGO_URI);
 
 export async function POST(req) {

@@ -4,6 +4,7 @@ import { Resend } from "resend";
 import * as z from "zod";
 import ContactThankYouEmail from "../../src/app/api/email/contact-template";
 
+export const runtime = "nodejs";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export type FormState = {
