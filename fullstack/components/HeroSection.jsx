@@ -41,7 +41,7 @@ export default function HeroSection() {
           >
             <div className="relative m-12">
             <img 
-            src="../images/Logo.png" 
+            src="./images/Logo.png" 
             alt="Logo" 
             className="w-80 h-80 object-cover rounded-2xl shadow-2xl"
             />
