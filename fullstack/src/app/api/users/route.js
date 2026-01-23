@@ -1,27 +1,32 @@
-import mongoose from 'mongoose';
-import User from '../../../models/user';
-
-// Pastikan koneksi MongoDB
-mongoose.connect(process.env.MONGO_URI);
+import dbConnect from "@/lib/mongodb";
+import User from "@/models/user";
 
 export async function GET() {
   try {
+    await dbConnect();
     const users = await User.find();
-    return new Response(JSON.stringify(users), { status: 200 });
+    return Response.json(users);
   } catch (err) {
     console.error(err);
-    return new Response(JSON.stringify({ error: 'Gagal mengambil data user' }), { status: 500 });
+    return Response.json(
+      { error: "Gagal mengambil data user" },
+      { status: 500 }
+    );
   }
 }
 
 export async function POST(req) {
   try {
+    await dbConnect();
     const { name, email, role } = await req.json();
-    const newUser = new User({ name, email, role });
-    await newUser.save();
 
-    return new Response(JSON.stringify(newUser), { status: 201 });
+    const newUser = await User.create({ name, email, role });
+    return Response.json(newUser, { status: 201 });
   } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 400 });
+    console.error(err);
+    return Response.json(
+      { error: err.message },
+      { status: 400 }
+    );
   }
 }
