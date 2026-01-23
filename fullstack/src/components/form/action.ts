@@ -16,29 +16,42 @@ export async function submitContactForm(
   formData: FormData
 ): Promise<FormState> {
   try {
-    const formSchema = z.object({
+    if (!process.env.RESEND_API_KEY) {
+      return {
+        success: false,
+        error: "Resend API Key tidak ditemukan",
+      };
+    }
+
+    const schema = z.object({
       email: z.string().email(),
+      message: z.string().min(1),
+      name: z.string().min(1),
     });
 
-    const parsed = formSchema.safeParse(
+    const parsed = schema.safeParse(
       Object.fromEntries(formData.entries())
     );
 
     if (!parsed.success) {
       return {
         success: false,
-        error: "Please enter a valid email address",
+        error: "Form tidak valid",
       };
     }
 
+    const { name, email, message } = parsed.data;
+
     const { error } = await resend.emails.send({
-      from: "lainnyaakun83@gmail.com",
-      to: [parsed.data.email],
-      subject: "Thank you for contacting me",
-      react: null,
+      from: "PixelDev <onboarding@resend.dev>", // 🔥 FIX
+      to: ["rendysulistyawan11@gmail.com"],
+      replyTo: email,
+      subject: `Pesan dari ${name}`,
+      text: message,
     });
 
     if (error) {
+      console.error("RESEND ERROR:", error);
       return {
         success: false,
         error: "Failed to send email",
@@ -47,13 +60,13 @@ export async function submitContactForm(
 
     return {
       success: true,
-      message: "Success! I'll get back to you soon.",
+      message: "Email berhasil dikirim!",
     };
   } catch (err) {
+    console.error("SERVER ACTION ERROR:", err);
     return {
       success: false,
-      error:
-        err instanceof Error ? err.message : "Something went wrong",
+      error: "Terjadi kesalahan server",
     };
   }
 }
