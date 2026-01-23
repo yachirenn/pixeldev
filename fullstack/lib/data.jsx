@@ -43,7 +43,7 @@ export const activities = [
         id:"6",
         title: "Mendengarkan Cerita Nabi",
         date: "2024-01-20",
-        description: "Memahamkan huruf ijaiyah dan melafalkan ayat-ayat pendek dari Al-Qur'an.",
+        description: "Memahamkan huruf hijaiyah dan melafalkan ayat-ayat pendek dari Al-Qur'an.",
         imageUrl: "/images/mendongeng.jpg",
         link: "#"
     }
