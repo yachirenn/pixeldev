@@ -5,7 +5,7 @@ import Image from "next/image";
 const TestiSection = () => {
   return (
     <section id="testimoni" className="py-16 bg-background text-foreground">
-      <div className="container mx-auto px-4 mt-10 mb-30">
+      <div className="container mx-auto px-4 mt-10 mb-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

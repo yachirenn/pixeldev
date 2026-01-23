@@ -21,7 +21,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-xl md:*:text-2xl text-muted-foreground mb-8 max-w-2xl">
-              Kami menghadirkan kegiatan yang menumbuhkan kecerdasan, akhlak, dan kemandirian anak sejak dni — agar mereka tumbuh menjadi generasi yang beriman dan berakhlakul karimah.
+              Kami menghadirkan kegiatan yang menumbuhkan kecerdasan, akhlak, dan kemandirian anak sejak dini — agar mereka tumbuh menjadi generasi yang beriman dan berakhlakul karimah.
             </p>
 
             <motion.div initial={{ opacity: 0, y: 20}} animate={{ opacity: 1, y: 0}} transition={{ duration: 0.8, delay: 0.3 }}>

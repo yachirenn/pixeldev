@@ -4,7 +4,7 @@ export const activities = [
         title: "Lomba Peringatan 17 Agustus",
         date: "2023-10-15",
         description: "Melalui kegiatan ini, anak-anak belajar tata cara shalat dan wudhu yang baik dengan dipandu oleh ustaz dan ustazah kami.",
-        imageUrl: "/images/kerupuk.jpeg",
+        imageUrl: "/images/lomba.jpg",
         link: "#"
     },
     {
@@ -12,7 +12,7 @@ export const activities = [
         title: "Menggambar dan Mewarnai Kaligrafi", 
         date: "2023-11-05",
         description: "Dengan pensil warna di tangan, anak-anak mengekspresikan hati mereka, yang dapat melatih kreativitas, serta kepercayadirian mereka.",
-        imageUrl: "/images/mewarnai.jpeg",
+        imageUrl: "/images/warna.jpg",
         link: "#"
     },
     {
@@ -20,7 +20,7 @@ export const activities = [
         title: "Renang",
         date: "2023-12-01",
         description: "Bersama-sama menjaga kesehatan dan menumbuhkan semangat.",
-        imageUrl: "/images/outdorr.jpeg",
+        imageUrl: "/images/renang.jpg",
         link: "#"
     },
     {
@@ -28,30 +28,29 @@ export const activities = [
         title: "Mendengarkan Cerita Nabi",
         date: "2024-01-20",
         description: "Memahamkan huruf hijaiyah dan melafalkan ayat-ayat pendek dari Al-Qur'an.",
-        imageUrl: "/images/makankerupuk.jpeg",
+        imageUrl: "/images/mendongeng.jpg",
+        link: "#"
+    },
+    {
+        id:"5",
+        title: "Mendengarkan Cerita Nabi",
+        date: "2024-01-20",
+        description: "Memahamkan huruf hijaiyah dan melafalkan ayat-ayat pendek dari Al-Qur'an.",
+        imageUrl: "/images/mendongeng.jpg",
+        link: "#"
+    },
+    {
+        id:"6",
+        title: "Mendengarkan Cerita Nabi",
+        date: "2024-01-20",
+        description: "Memahamkan huruf hijaiyah dan melafalkan ayat-ayat pendek dari Al-Qur'an.",
+        imageUrl: "/images/mendongeng.jpg",
         link: "#"
     }
 ];
 
 export const quotes = [
     {
-        text: "The best way to predict the future is to create it.",
-        author: "Peter Drucker",
-    },
-    {
-        text: "Education is the most powerful weapon which you can use to change the world.",
-        author: "Nelson Mandela",
-    },
-    {
-        text: "Learning never exhausts the mind.",
-        author: "Leonardo da Vinci",
-    },
-    {
-        text: "The beautiful thing about learning is that no one can take it away from you.",
-        author: "B.B. King",
-    },
-    {
-        text: "An investment in knowledge pays the best interest.",
-        author: "Benjamin Franklin",
+        text: '"Generasi Emas 2045"',
     }
 ];

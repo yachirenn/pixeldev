@@ -11,7 +11,7 @@ export default function QuotesSection() {
   const randomQuote = getRandomQuote();
 
   return (
-    <section id="quotes" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="quotes" className="py-2 mb-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <motion.div className="text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -20,13 +20,10 @@ export default function QuotesSection() {
           transition={{ duration: 0.8 }}
         >
           <div>
-            <Quote className="h-12 w-12 text-primary/30 mx-auto mb-6" />
+            <Quote className="h-9 w-9 text-primary/30 mx-auto mb-6" />
             <blockquote className="text-2xl md:text-3xl font-serif font-medium text-foreground leading-relaxed mb-6">
                 {randomQuote.text}
             </blockquote>
-            <cite className="text-lg text-foreground font-medium not-italic">
-                - {randomQuote.author}
-            </cite>
           </div>
         </motion.div>
       </div>
