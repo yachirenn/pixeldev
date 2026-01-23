@@ -26,11 +26,6 @@ const socialLinks = [
     href: "https://linkedin.com/in/yourprofile",
     label: "LinkedIn",
   },
-  {
-    icon: Github,
-    href: "https://github.com/yourprofile",
-    label: "GitHub",
-  },
 ];
 
 export default function Footer() {
