@@ -4,7 +4,7 @@ import { Twitter, Facebook, Instagram, Linkedin, Github } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import ContactForm from "./form/contact-form";
-import ContactThankYouEmail from "../src/app/api/email/contact-template";
+import ContactThankYouEmail from "../app/api/email/contact-template";
 const socialLinks = [
   {
     icon: Twitter,

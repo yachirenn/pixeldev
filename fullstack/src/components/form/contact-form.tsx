@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
-import { type FormState, submitContactForm } from "./action";
+import { type FormState, submitContactForm } from "@/components/form/action";
 
 const ContactForm = () => {
   const [currentState, formAction, isPending] = useActionState<
