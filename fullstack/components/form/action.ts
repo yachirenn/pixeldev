@@ -1,59 +1,36 @@
 "use server";
 
-import { Resend } from "resend";
-import * as z from "zod";
-import ContactThankYouEmail from "../../src/app/api/email/contact-template";
+import { error } from "console";
 
-export const runtime = "nodejs";
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export type FormState = {
-	success?: boolean;
-	error?: string;
-	message?: string;
-};
 export async function submitContactForm(
-	_prevState: FormState,
-	formData: FormData,
-): Promise<FormState> {
-	try {
-		const formSchema = z.object({
-			email: z.email(),
-		});
+  _prevState: any,
+  formData: FormData
+) {
+  try {
+    const email = formData.get("email");
 
-		const { data, success } = formSchema.safeParse(
-			Object.fromEntries(formData.entries()),
-		);
-		if (!success)
-			return {
-				success: false,
-				error: "Please enter a valid email address",
-			};
+    if (!email || typeof email !== "string") {
+      return { success: false, error: "Invalid email" };
+    }
 
-		const { error } = await resend.emails.send({
-			from: "lainnyaakun83@gmail.com",
-			to: [data.email],
-			subject: "Thank you for contacting me",
-			react: ContactThankYouEmail(),
-		});
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/email`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
 
-		if (error) {
-			console.error("Resend error:", error);
-			return {
-				success: false,
-				error: "Failed to send email. Please try again.",
-			};
-		}
+    if (!res.ok) {
+      return { success: false, error: "Failed to send email" };
+    }
 
-		return {
-			success: true,
-			message: "Success! I'll get back to you as soon as possible.",
-		};
-	} catch (error) {
-		console.error("Server action error:", error);
-		return {
+    return {
+      success: true,
+      message: "Success! I'll get back to you soon.",
+    };
+  } catch {
+    return {
 			success: false,
-			error: "Something went wrong. Please try again.",
+			error: "Something went wrong!",
 		};
-	}
-}
+	};
+};
