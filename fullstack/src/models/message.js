@@ -1,13 +1,13 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
 const MessageSchema = new mongoose.Schema(
   {
-    name: String,
-    email: String,
-    message: String,
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    message: { type: String, required: true },
   },
   { timestamps: true }
-);
+)
 
 export default mongoose.models.Message ||
-  mongoose.model("Message", MessageSchema);
+  mongoose.model("Message", MessageSchema)

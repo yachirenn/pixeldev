@@ -1,26 +1,17 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error("❌ MONGODB_URI belum diset di environment");
-}
-
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
+let isConnected = false
 
 export async function connectDB() {
-  if (cached.conn) return cached.conn;
+  if (isConnected) return
 
-  if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI, {
-      bufferCommands: false,
-    });
+  if (!process.env.MONGO_URI) {
+    throw new Error("MONGO_URI tidak ditemukan di ENV")
   }
 
-  cached.conn = await cached.promise;
-  return cached.conn;
+  await mongoose.connect(process.env.MONGO_URI, {
+    bufferCommands: false,
+  })
+
+  isConnected = true
 }

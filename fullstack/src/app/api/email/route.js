@@ -1,21 +1,8 @@
 import nodemailer from "nodemailer"
-import mongoose from "mongoose"
-import Message from "../../../models/message"
+import { connectDB } from "@/lib/db"
+import Message from "@/models/message"
 
 export const runtime = "nodejs"
-
-let isConnected = false
-
-async function connectDB() {
-  if (isConnected) return
-
-  if (!process.env.MONGO_URI) {
-    throw new Error("MONGO_URI tidak ada di ENV")
-  }
-
-  await mongoose.connect(process.env.MONGO_URI)
-  isConnected = true
-}
 
 export async function POST(req) {
   try {
@@ -25,17 +12,19 @@ export async function POST(req) {
 
     if (!name || !email || !message) {
       return new Response(
-        JSON.stringify({ error: "Email dan Pesan wajib diisi!" }),
+        JSON.stringify({ error: "Semua field wajib diisi" }),
         { status: 400 }
       )
     }
 
-    // simpan ke DB
-    const newMessage = new Message({ name, email, message })
-    await newMessage.save()
+    // simpan ke MongoDB
+    await Message.create({ name, email, message })
 
-    // cek ENV email
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.EMAIL_RECEIVER) {
+    if (
+      !process.env.EMAIL_USER ||
+      !process.env.EMAIL_PASS ||
+      !process.env.EMAIL_RECEIVER
+    ) {
       throw new Error("ENV EMAIL belum lengkap")
     }
 
@@ -56,16 +45,13 @@ export async function POST(req) {
     })
 
     return new Response(
-      JSON.stringify({ success: true, message: "Email & data berhasil dikirim!" }),
+      JSON.stringify({ success: true, message: "Email berhasil dikirim" }),
       { status: 200 }
     )
   } catch (err) {
     console.error("EMAIL API ERROR:", err)
-
     return new Response(
-      JSON.stringify({
-        error: err instanceof Error ? err.message : "Gagal mengirim email",
-      }),
+      JSON.stringify({ error: err.message }),
       { status: 500 }
     )
   }
