@@ -14,7 +14,7 @@ export async function submitContactForm(
   formData: FormData
 ): Promise<FormState> {
   try {
-    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
       return {
         success: false,
         error: "Email server belum dikonfigurasi",
@@ -43,22 +43,22 @@ export async function submitContactForm(
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER,          // pixeldevelop33@gmail.com
-        pass: process.env.GMAIL_APP_PASSWORD,  // APP PASSWORD
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     await transporter.sendMail({
       from: `"PixelDev Contact" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
-      replyTo: email, // INI YANG PENTING
+      to: process.env.EMAIL_USER,
+      replyTo: email,
       subject: `Pesan dari ${name}`,
       text: `
-Nama   : ${name}
-Email  : ${email}
+      Nama   : ${name}
+      Email  : ${email}
 
-Pesan:
-${message}
+      Pesan:
+      ${message}
       `,
     });
 
