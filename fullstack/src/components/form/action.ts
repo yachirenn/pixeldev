@@ -1,6 +1,6 @@
 "use server";
 
-import { Resend } from "resend";
+import nodemailer from 'nodemailer';
 import * as z from "zod";
 
 export type FormState = {
@@ -9,17 +9,15 @@ export type FormState = {
   message?: string;
 };
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function submitContactForm(
   _prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
   try {
-    if (!process.env.RESEND_API_KEY) {
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
       return {
         success: false,
-        error: "Resend API Key tidak ditemukan",
+        error: "Email server belum dikonfigurasi",
       };
     }
 
@@ -42,36 +40,37 @@ export async function submitContactForm(
 
     const { name, email, message } = parsed.data;
 
-    const { error } = await resend.emails.send({
-      from: "PixelDev <onboarding@resend.dev>", 
-      to: ["pixeldevelop33@gmail.com"],
-      replyTo: email,
-      subject: `Pesan dari ${name}`,
-      text: `,
-
-      Dari: ${name}
-      Email: ${email}
-
-      Pesan: ${message}`
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.GMAIL_USER,          // pixeldevelop33@gmail.com
+        pass: process.env.GMAIL_APP_PASSWORD,  // APP PASSWORD
+      },
     });
 
-    if (error) {
-      console.error("RESEND ERROR:", error);
-      return {
-        success: false,
-        error: "Failed to send email",
-      };
-    }
+    await transporter.sendMail({
+      from: `"PixelDev Contact" <${process.env.GMAIL_USER}>`,
+      to: process.env.GMAIL_USER,
+      replyTo: email, // INI YANG PENTING
+      subject: `Pesan dari ${name}`,
+      text: `
+Nama   : ${name}
+Email  : ${email}
+
+Pesan:
+${message}
+      `,
+    });
 
     return {
       success: true,
-      message: "Email berhasil dikirim!",
+      message: "Pesan berhasil dikirim!",
     };
   } catch (err) {
-    console.error("SERVER ACTION ERROR:", err);
+    console.error("EMAIL ERROR:", err);
     return {
       success: false,
-      error: "Terjadi kesalahan server",
+      error: "Gagal mengirim pesan",
     };
   }
 }
