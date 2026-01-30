@@ -43,11 +43,16 @@ export async function submitContactForm(
     const { name, email, message } = parsed.data;
 
     const { error } = await resend.emails.send({
-      from: "PixelDev <onboarding@resend.dev>", // 🔥 FIX
-      to: ["rendysulistyawan11@gmail.com"],
+      from: "PixelDev <onboarding@resend.dev>", 
+      to: ["pixeldevelop33@gmail.com"],
       replyTo: email,
       subject: `Pesan dari ${name}`,
-      text: message,
+      text: `,
+
+      Dari: ${name}
+      Email: ${email}
+
+      Pesan: ${message}`
     });
 
     if (error) {
