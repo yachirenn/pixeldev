@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "target": "es6",
     "lib": [
       "dom",
@@ -24,9 +24,7 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["./"]
     }
   },
   "include": [
