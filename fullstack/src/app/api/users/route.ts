@@ -1,4 +1,4 @@
-import { connectDB } from "@/lib/db";
+import { connectDB } from "@/lib/db/db";
 import User from "@/models/user";
 
 export const runtime = "nodejs";
