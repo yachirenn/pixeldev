@@ -61,7 +61,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Kunjungi Kami</h4>
             <p className="text-muted-foreground mb-4">Explore tempat kami untuk pengalaman terbaik anda!</p>
-            <div className="w-full h-[300px]">
+            <div className="w-full h-75">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d494.23088779751345!2d110.37298900699453!3d-7.699552299999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5f263ab6de2d%3A0x2207a3a6fdf57aa4!2sTKIP%20SDIT%20SMPIT%20SALSABILA%20UNIT%20PANDOWOHARJO!5e0!3m2!1sid!2sid!4v1764301921665!5m2!1sid!2sid"
                 title="Lokasi TKIP SDIT SMPIT Salsabila Pandowoharjo"

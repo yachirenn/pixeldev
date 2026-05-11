@@ -1,12 +1,11 @@
 import React from "react";
 
-import HeroSection from "@/components/HeroSection";
-import Activity from "@/components/ActivitySection";
-import About from "@/components/AboutSection";
-import Categories from "@/components/Categories";
-import Testimonial from "@/components/Testimonial";
-import Quotes from "@/components/QuotesSection";
-import "./globals.css";
+import HeroSection from "@/components/sections/HeroSection";
+import Activity from "@/components/sections/ActivitySection";
+import About from "@/components/sections/AboutSection";
+import Categories from "@/components/sections/Categories";
+import Testimonial from "@/components/sections/Testimonial";
+import Quotes from "@/components/sections/QuotesSection";
 
 export default function Home() {
   return (

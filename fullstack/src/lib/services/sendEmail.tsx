@@ -1,4 +1,11 @@
-export async function sendEmail({ name, email, message }) {
+interface EmailData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+
+export async function sendEmail({ name, email, message }: EmailData) {
   const url = `${process.env.MONGODB_URI}/send`;
   const res = await fetch(url, {
     method: 'POST',
