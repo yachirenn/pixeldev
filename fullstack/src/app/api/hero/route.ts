@@ -1,7 +1,7 @@
 // src/app/api/hero/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { connectDB } from '@/lib/db/db';
-import Hero from '@/models/Hero';
+import { connectDB } from '@/lib/db';
+import Hero from '@/lib/models/Hero';
 
 // GET - Fetch active hero
 export async function GET() {
